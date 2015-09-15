@@ -1,12 +1,14 @@
 # libhelico : a useful library
 
+-------------
 Team
--
+-------------
+
 Project manager : Charly
 
-Software architect : Jeremy
+Software "architect" : Jeremy
 
-Repository holder and biscotte eater : Datta
+Repository holder and biscotte eater : Bezout
 
 Guest member : Gaspard
 
