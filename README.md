@@ -1,13 +1,13 @@
-# libhelico : a usefull library
+# libhelico : a useful library
 
 Team
 -
 Project manager : Charly
 
-Developer : Jeremy
+Software architect : Jeremy
 
-Repository holder : Datta
+Repository holder and biscotte eater : Datta
 
 Guest member : Gaspard
 
-Boss fo the project manager : Céline
+Boss of the project manager : Céline
