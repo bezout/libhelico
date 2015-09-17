@@ -1,5 +1,5 @@
 # libhelico : a useful library
-
+Deserted project...
 -------------
 Team
 -------------
@@ -11,5 +11,7 @@ Software "architect" : Jeremy
 Repository holder and biscotte eater : Bezout
 
 Guest member : Gaspard
+
+Supervisor : Tintin
 
 Boss of the project manager : Céline
