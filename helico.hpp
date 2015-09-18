@@ -1,5 +1,6 @@
 #include <iostream>
 #include <boost/thread.hpp>
+#include <boost/lexical_cast.hpp>
 #include <ctime>
 #include <fstream>
 #include <vector>
@@ -67,6 +68,7 @@ class Aquarium { // du latin aqua qui veut dire "eau" (principal composant de la
 	int nbrl = 0;
 	int speed = 500;
 	
+	// boucle principale dans un thread à part
 	void loop() {
 					  
 		int cpt = 0;
@@ -76,15 +78,15 @@ class Aquarium { // du latin aqua qui veut dire "eau" (principal composant de la
 					  
 		  if(started) {
 			
-			displFrame(cpt % animvect.size());
+			displFrame(cpt % animvect.size()); // frame courante
 			
-			for(int i = 0 ; i < nbrl ; ++i) std::cout << "\r\e[A";
+			for(int i = 0 ; i < nbrl ; ++i) std::cout << "\r\e[A"; // retour en haut
 			
 			std::cout << std::flush;
 			
 			cpt++;
 			
-			v::tempo(speed);
+			v::tempo(speed); // attente
 		  }
 		}
 	}
@@ -92,23 +94,28 @@ class Aquarium { // du latin aqua qui veut dire "eau" (principal composant de la
 	
 	public:
 	
-	void loadFile(string path, int nbrLignes) {
+	// chargement d'un fichier d'animation en ascii-art
+	void loadFile(string path) {
 		
 		string line = "";
 		string fr = "";
 		int cptligne = 0;
-		
-		nbrl = nbrLignes;
-	
+
 	    ifstream anim (path);
 	    
 	    if (anim.is_open())
 	    {
+		  getline (anim,line);
+		  
+		  int nbrLignes = boost::lexical_cast<int>(line); // 1ere ligne = nombre de lignes par frame
+		  nbrl = nbrLignes;
+		  
+			
 		  while ( getline (anim,line))
 		  {
 			fr += line + "\n";
 			
-			if(cptligne % nbrLignes == (nbrLignes - 1)) {
+			if(cptligne % nbrLignes == (nbrLignes - 1)) { // frame terminée
 				
 				addFrame(fr);
 				fr = "";
@@ -124,37 +131,43 @@ class Aquarium { // du latin aqua qui veut dire "eau" (principal composant de la
 	  }
 	  
 	  
+	  // ajout d'une frame au vecteur de frames
 	  void addFrame(string fr) {
 		  
 		  animvect.push_back(fr);
 	  }
 	  
+	  // affichage d'une frame
 	  void displFrame(int i) {
 		  
 		  std::cout << animvect[i] ;//<< endl;
 	  }
 	  
-	  
+	  // setter du speed
 	  void setSpeed(int sp) {
 		  
 		  speed = sp;
 	  }
 	
 	
-      Aquarium(string path, int nbr, int sp = 500) : th([&](){ loop(); }) {
+	  // constructeur rapide avec chemin du fichier et vitesse
+      Aquarium(string path, int sp = 500) : th([&](){ loop(); }) {
 	
-		  loadFile(path, nbr);
+		  loadFile(path/*, nbr*/);
 		  speed = sp;
 		  started = true;
 	  }
 	  
+	  // constructeur pour chargement / lancement manuels
 	  Aquarium() : th([&](){ loop(); }) {
 	  }
 	
+	  // lancement de l'animation
 	  void start() {
 		started = true;
 	  }
 		
+	  // stopation de l'animation
 	  void stop() {
 		  
 		for(int i = 0 ; i < nbrl ; ++i) std::cout << "\n";
