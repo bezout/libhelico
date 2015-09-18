@@ -1,17 +1,17 @@
 # libhelico : a useful library
-Deserted project...
+
 -------------
 Team
 -------------
 
-Project manager : Charly
+Project manager, leader and funder : Charly
 
-Software "architect" : Jeremy
+Software "architect": Jeremy
 
-Repository holder and biscotte eater : Bezout
+Repository holder and biscotte eater: Datta qui assume pas
 
-Guest member : Gaspard
+Guest member: Gaspard
 
-Supervisor : Tintin
+Supervisor: Tintin
 
-Boss of the project manager : Céline
+Boss of the Project manager: Céline
