@@ -4,7 +4,7 @@
 Team
 -------------
 
-Project manager, leader and funder : Charly
+Project manager, leader and funder: Charly
 
 Software "architect": Jeremy
 
