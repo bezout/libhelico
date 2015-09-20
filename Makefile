@@ -1,4 +1,4 @@
 testhelico:
-	g++ main.cpp -std=c++0x -lboost_thread -lboost_system -o testhelico
+	g++ main.cpp -std=c++0x -o testhelico -lpthread
 clean:
-	rm testhelico
+	rm -f testhelico
