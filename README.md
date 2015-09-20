@@ -8,7 +8,7 @@ Project manager, leader and funder: Charly
 
 Software "architect": Jeremy
 
-Repository holder and biscotte eater: Datta qui assume pas
+Shadow member: Datta
 
 Guest member: Gaspard
 
