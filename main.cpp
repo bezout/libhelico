@@ -18,7 +18,9 @@ int main()
   
   std::cout << " Press enter to finish " << std::endl;
   {
-    Aquarium a("anim/aqua.txt", 200);
+//     Aquarium a("anim/aqua.txt", 200);
+//     Aquarium a("anim/test.txt", 500);
+    Aquarium a("anim/tourdefrance.txt", 100);
     getchar();
   }
   std::cout << " return " << std::endl;
