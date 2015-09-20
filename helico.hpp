@@ -1,22 +1,12 @@
 #include <iostream>
-#include <boost/thread.hpp>
-#include <boost/lexical_cast.hpp>
-#include <ctime>
+#include <chrono>
+#include <thread>
 #include <fstream>
 #include <vector>
 
-using namespace std;
-
-namespace v
+void tempo(size_t duration)
 {
-  inline void tempo(size_t duration)
-  {
-  #if BOOST_VERSION > 104800
-    boost::this_thread::sleep_for(boost::chrono::milliseconds(duration));
-  #else
-    boost::this_thread::sleep(boost::posix_time::milliseconds(duration));
-  #endif
-  }
+  std::this_thread::sleep_for(std::chrono::milliseconds(duration));
 }
 
 
@@ -38,21 +28,21 @@ class Helico // pour faire l'hélico ^^
 		  etat = etat % nb_etat;
 		  std::cout << '\b';
 		  std::cout << chaine[etat] << std::flush;
-		  v::tempo(ms);
+		  tempo(ms);
 		}
 	  };
 
-  boost::thread th;
+  std::thread th;
   
-  
+    bool stop_ = false;
   public:
   
-	  Helico():th([&](){Detail _;while(1){_();}}) {}
+	  Helico():th([&](){Detail _;while(!stop_){_();}}) {}
 
 	  void stop()
 	  {
-		th.interrupt();
-		th.join();
+      stop_=true;
+      th.join();
 	  }
 	  ~Helico(){stop();}
 };
@@ -62,8 +52,8 @@ class Aquarium { // du latin aqua qui veut dire "eau" (principal composant de la
 	
 	protected:
 	
-	vector<string> animvect;
-	boost::thread th;
+	std::vector<std::string> animvect;
+	std::thread th;
 	bool started = false;
 	int nbrl = 0;
 	int speed = 500;
@@ -74,7 +64,7 @@ class Aquarium { // du latin aqua qui veut dire "eau" (principal composant de la
 		int cpt = 0;
 		int s = 0;
 				  
-		while(1) {
+		while(!stop_) {
 					  
 		  if(started) {
 			
@@ -86,36 +76,33 @@ class Aquarium { // du latin aqua qui veut dire "eau" (principal composant de la
 			
 			cpt++;
 			
-			v::tempo(speed); // attente
+      tempo(speed); // attente
 		  }
 		}
 	}
 	
+  bool stop_ = false;
 	
 	public:
 	
 	// chargement d'un fichier d'animation en ascii-art
-	void loadFile(string path) {
+	void loadFile(std::string path) {
 		
-		string line = "";
-		string fr = "";
+		std::string line = "";
+		std::string fr = "";
 		int cptligne = 0;
 
-	    ifstream anim (path);
+	  std::ifstream anim (path);
 	    
-	    if (anim.is_open())
-	    {
-		  getline (anim,line);
-		  
-		  int nbrLignes = boost::lexical_cast<int>(line); // 1ere ligne = nombre de lignes par frame
-		  nbrl = nbrLignes;
-		  
-			
+	  if (anim.is_open())
+	  {
+      anim >> nbrl;// 1ere ligne = nombre de lignes par frame
+
 		  while ( getline (anim,line))
 		  {
 			fr += line + "\n";
 			
-			if(cptligne % nbrLignes == (nbrLignes - 1)) { // frame terminée
+			if(cptligne % nbrl == (nbrl - 1)) { // frame terminée
 				
 				addFrame(fr);
 				fr = "";
@@ -127,12 +114,12 @@ class Aquarium { // du latin aqua qui veut dire "eau" (principal composant de la
 		  anim.close();
 	    }
 
-	    else cout << "Unable to open file " << path << endl; 
+	    else std::cout << "Unable to open file " << path << std::endl; 
 	  }
 	  
 	  
 	  // ajout d'une frame au vecteur de frames
-	  void addFrame(string fr) {
+	  void addFrame(std::string fr) {
 		  
 		  animvect.push_back(fr);
 	  }
@@ -151,7 +138,7 @@ class Aquarium { // du latin aqua qui veut dire "eau" (principal composant de la
 	
 	
 	  // constructeur rapide avec chemin du fichier et vitesse
-      Aquarium(string path, int sp = 500) : th([&](){ loop(); }) {
+      Aquarium(std::string path, int sp = 500) : th([&](){ loop(); }) {
 	
 		  loadFile(path/*, nbr*/);
 		  speed = sp;
@@ -172,8 +159,8 @@ class Aquarium { // du latin aqua qui veut dire "eau" (principal composant de la
 		  
 		for(int i = 0 ; i < nbrl ; ++i) std::cout << "\n";
 		
-		th.interrupt();
-		th.join();
+      stop_=true;
+      th.join();
 	  }
 	  
 	  ~Aquarium(){stop();}
