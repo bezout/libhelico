@@ -1,28 +1,30 @@
 
 #include "helico.hpp"
 
+void clear_console() { system("clear"); }
+
+void demo(std::string filename, int timestamp)
+{
+  clear_console();
+  std::cout << " Press enter to finish " << std::endl << std::endl;
+  Aquarium a(filename,timestamp);
+  getchar();
+}
 
 int main()
 {
   // test helico
-  
-  std::cout << " Press enter to finish " << std::endl;
+  clear_console();
+  std::cout << " Press enter to finish " << std::endl << std::endl;
   {
     Helico _;
     getchar();
   }
-  std::cout << " return " << std::endl;
-  
-  // test aquarium
-  
-  std::cout << " Press enter to finish " << std::endl;
-  {
-//     Aquarium a("anim/aqua.txt", 200);
-//     Aquarium a("anim/test.txt", 500);
-    Aquarium a("anim/tourdefrance.txt", 100);
-    getchar();
-  }
-  std::cout << " return " << std::endl;
 
+  // test animations
+  demo("anim/aqua.txt", 200);
+  demo("anim/test.txt", 1000);
+  demo("anim/tourdefrance.txt", 150);
 
+  clear_console();
 }
