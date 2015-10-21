@@ -32,12 +32,12 @@ The "time_stamp_value" represent the time between each frame of your animation (
 Comments and Complaints
 -------------
 
-If you have any problems/comments/complaints running this library or concerning the contents of the animations[^footnote1] please contact the shadow member or the software architect[^footnote2] which are more involded than the project manager.
+If you have any problems/comments/complaints running this library or concerning the contents of the animations\* please contact the shadow member or the software architect¤ which are more involded than the project manager.
 
 -------------
 
-[^footnote1] All characters appearing in this work are fictitious. Any resemblance to real persons, living or dead, is purely coincidental.
+\* All characters appearing in this work are fictitious. Any resemblance to real persons, living or dead, is purely coincidental.
 
-[^footnote2] Such a lovely name for a such messy person.
+¤ Such a lovely name for a such messy person.
 
 
