@@ -34,7 +34,10 @@ Comments and Complaints
 
 If you have any problems/comments/complaints running this library or concerning the contents of the animations* please contact the shadow member or the software architect** which are more involded than the project manager.
 
-** All characters appearing in this work are fictitious. Any resemblance to real persons, living or dead, is purely coincidental.
-*** Such a lovely name for a such messy person.
+-------------
+
+* All characters appearing in this work are fictitious. Any resemblance to real persons, living or dead, is purely coincidental.
+
+** Such a lovely name for a such messy person.
 
 
