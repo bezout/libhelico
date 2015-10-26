@@ -9,7 +9,7 @@ void clear_console() { system("clear"); }
 // usage
 void usage() {
 	
-	std::cout << "Usage : testhelico\tanim file tempo\n\t\t\tmusic file\n\t\t\thelico" << std::endl;
+	std::cout << "Usage: testhelico\tanim file tempo\n\t\t\tmusic file\n\t\t\thelico" << std::endl;
 }
 
 
@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 			  usage();
 			  return -1;
 		  }
-		  
+
 		  else {
 			  
 			  clear_console();
@@ -66,6 +66,10 @@ int main(int argc, char **argv)
 		  }
 	  }
   
+	else {
+		usage();
+		return -1;
+	}
   }
   
   // demo par défaut
