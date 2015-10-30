@@ -12,10 +12,11 @@ void usage() {
 	std::cout << "Usage: testhelico\tanim file tempo\n\t\t\tmusic file\n\t\t\thelico" << std::endl;
 }
 
+int simulator();
 
 int main(int argc, char **argv)
 {
-  
+
   if(argc > 1) {
 
 	  // test helico
@@ -46,6 +47,11 @@ int main(int argc, char **argv)
 		  }
 	  }
 	  
+	  else if(strcmp(argv[1], "simulator") == 0) {
+	  	clear_console();
+	  	simulator();
+	  	clear_console();
+	  }
 	  // test musique
 	  else if(strcmp(argv[1], "music") == 0) {
 		  

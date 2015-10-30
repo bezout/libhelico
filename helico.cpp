@@ -1,9 +1,16 @@
 #include "helico.hpp"
+#include <algorithm>
 
 void tempo(size_t duration)
 {
   std::this_thread::sleep_for(std::chrono::milliseconds(duration));
 }
+
+void up_to_n_lines(int n)
+{
+  loop(0,n,[](auto){std::cout << "\r\e[A";});
+}
+
 
 
 // pour faire l'hélico ^^
@@ -43,8 +50,8 @@ void Aquarium::loop() {
     if(started) {
     
     displFrame(cpt % animvect.size()); // frame courante
+    up_to_n_lines(nbrl);
     
-    for(int i = 0 ; i < nbrl ; ++i) std::cout << "\r\e[A"; // retour en haut
     
     std::cout << std::flush;
     

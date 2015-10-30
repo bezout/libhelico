@@ -5,8 +5,13 @@
 #include <vector>
 #include <sstream>
 
-void tempo(size_t duration);
+void loop(auto begin, auto end, auto f)
+{
+  for(auto i = begin ; i != end ; ++i) f(i);
+}
 
+void tempo(size_t duration);
+void up_to_n_lines(int n);
 
 class Helico // pour faire l'hélico ^^
 {
@@ -65,7 +70,7 @@ class Aquarium { // du latin aqua qui veut dire "eau" (principal composant de la
 
 
   // constructeur rapide avec chemin du fichier et vitesse
-    Aquarium(std::string path, int sp = 500);
+  Aquarium(std::string path, int sp = 500);
   
   // constructeur pour chargement / lancement manuels
   Aquarium();

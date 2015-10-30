@@ -45,6 +45,8 @@ How to use this library?
         music snd/snd_file.txt
 
         helico
+
+        simulator
         
         
 With no parameters, the program will display a nice ASCII animation while playing a beautiful music with the beeper.
