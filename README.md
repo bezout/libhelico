@@ -56,7 +56,7 @@ Note that you need to install the *beep* tool and load the *pcspkr* kernel modul
 
 *sudo apt-get install beep*
 
-*sudo aptitude modprobe pcspkr*
+*sudo modprobe pcspkr*
 
 
 See *main.cpp* for more information about using the library in your own libhelico-powered programs (it's very simple, you'll see, my little chicken :3 love).
