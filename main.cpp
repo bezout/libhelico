@@ -17,6 +17,8 @@ int simulator();
 int main(int argc, char **argv)
 {
 
+  //std::system("sudo modprobe pcspkr");
+	
   if(argc > 1) {
 
 	  // test helico

@@ -1,3 +1,6 @@
+ 
+ #if __cplusplus > 201103L
+
 #include "helico.hpp"
 #include <numeric>
 #include <algorithm>
@@ -93,3 +96,12 @@ int simulator()
 
   return EXIT_SUCCESS;
 }
+
+
+#else
+
+int simulator() {}
+
+#endif
+
+

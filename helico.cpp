@@ -8,7 +8,11 @@ void tempo(size_t duration)
 
 void up_to_n_lines(int n)
 {
-  loop(0,n,[](auto){std::cout << "\r\e[A";});
+  //loop(0,n,[](auto){std::cout << "\r\e[A";});
+  
+  for(int i = 0 ; i != n ; ++i) {
+	  std::cout << "\r\e[A";
+  };
 }
 
 
