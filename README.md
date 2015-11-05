@@ -114,7 +114,7 @@ See samples in the *snd/* directory.
 Comments and Complaints
 -------------
 
-If you have any problems/comments/complaints running this library or concerning the contents of the animations\* please contact the shadow member or the software architect\*\* which are more involded than the project manager.
+If you have any problems/comments/complaints running this library or concerning the contents of the animations\* please contact the Moaner or the software architect\*\* which are more involded than the project manager.
 
 Or just GFY.
 
