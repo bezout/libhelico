@@ -8,13 +8,15 @@ Project manager, leader and funder: Charly
 
 Software "architect": Jeremy
 
-Shadow member: Datta
+Moaner: Big Datta
 
 Guest member: Gaspard
 
-Supervisor: Tintin
+Artist: Tintin
 
 Boss of the Project manager: Céline
+
+English guy: Morgan
 
 -------------
 Main Features
@@ -23,7 +25,12 @@ Main Features
 * ASCII-art animations
 * Beeper music
 * Helico drawing
-* Soon: aquarium simulator
+* Aquarium simulator
+
+Soon:
+
+* Game module
+* Musical frequencies analyzer
 
 -------------
 How to use this library?
