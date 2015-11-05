@@ -5,6 +5,12 @@
 #include <numeric>
 #include <algorithm>
 
+void loop(auto begin, auto end, auto f)
+{
+  for(auto i = begin ; i != end ; ++i) f(i);
+}
+
+
 struct Fish { int x,y, pattern;};// position bas gauche
 struct FishPattern : std::vector<std::vector<std::string>>
 {

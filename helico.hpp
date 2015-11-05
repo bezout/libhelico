@@ -6,15 +6,6 @@
 #include <sstream>
 
 
-/*#if __cplusplus > 201103L
-
-void loop(auto begin, auto end, auto f)
-{
-  for(auto i = begin ; i != end ; ++i) f(i);
-}
-
-#endif*/
-
 
 void tempo(size_t duration);
 void up_to_n_lines(int n);
